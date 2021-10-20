@@ -1,0 +1,22 @@
+<div class="form-froup row">
+
+    <label class="col-sm-2 col-form-label" >First Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="firstName" placeholder="Enter First Name">
+        <input type="text" class="form-control" [(ngModel)]="lastName" placeholder="Enter Last Name">
+        <input type="text" class="form-control" [(ngModel)]="mobileNumber" placeholder="Enter Moblie Number">
+        <input type="text" class="form-control" [(ngModel)]="address1" placeholder="Enter Address1">
+        <input type="text" class="form-control" [(ngModel)]="address2" placeholder="Enter Address2">
+        <input type="text" class="form-control" [(ngModel)]="suburb" placeholder="Enter Suburb">
+        <input type="text" class="form-control" [(ngModel)]="state" placeholder="Enter State">
+        <input type="text" class="form-control" [(ngModel)]="postCode" placeholder="Enter PostCode">
+    </div>
+</div>
+
+<button (click)="addCustomer()" *ngIf="cus.id==0" class="btn btn-primary">
+    Add
+</button>
+
+<button (click)="editCustomer()" *ngIf="cus.id!=0" class="btn btn-primary">
+    Update
+</button>

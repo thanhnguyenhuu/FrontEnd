@@ -1,0 +1,83 @@
+<!-- Button trigger modal -->
+<!--
+<button type="button" class="btn btn-primary float-right m-2" data-toggle="modal" data-target="#addCustomerModal"
+(click)="addClick()"
+data-backdrop="static" data-keyboard="false"
+>
+Add Customer
+</button>
+-->
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2" 
+data-toggle="modal" data-target="#addCustomerModal"
+(click)="addClick()" 
+data-backdrop="static" data-keyboard="false"
+>
+    Add Customer
+  </button>
+  
+  <!-- Modal -->
+  
+  <div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          (click)="closeClick()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-add-edit-cus [cus]="cus" *ngIf="ActivateAddEditCusComp" ></app-add-edit-cus>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+            <th>Address1</th>
+            <th>Address2</th>
+            <th>Suburb</th>
+            <th>State</th>
+            <th>PostCode</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+        <tr *ngFor="let dataItem of CustomerList">
+            <td>{{dataItem.id}}</td>
+            <td>{{dataItem.firstName}}</td>
+            <td>{{dataItem.lastName}}</td>
+            <td>{{dataItem.mobileNumber}}</td>
+            <td>{{dataItem.address1}}</td>
+            <td>{{dataItem.address2}}</td>
+            <td>{{dataItem.suburb}}</td>
+            <td>{{dataItem.state}}</td>
+            <td>{{dataItem.postCode}}</td>
+            <td>
+                <button type="button" class="btn btn-light mr-1"
+                data-toggle="modal" data-target="#addCustomerModal"
+                (click)="editClick(dataItem)" 
+                data-backdrop="static" data-keyboard="false"                
+                >
+                Edit
+                </button>
+                <button type="button" class="btn btn-light mr-1"
+                (click)="deleteClick(dataItem)"
+                >
+                    Delete
+                </button>
+            </td>
+        </tr>
+       
+    </tbody>
+</table>
